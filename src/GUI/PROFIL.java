@@ -14,7 +14,7 @@ public class PROFIL extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
-         // Cek apakah user sudah login
+         
         if (USER.currentUsn == null) {
             LOGIN login = new LOGIN();
             login.setLocationRelativeTo(null);
@@ -154,7 +154,7 @@ public class PROFIL extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(34, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Label_usn)
                     .addComponent(tampil_usn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
@@ -162,7 +162,7 @@ public class PROFIL extends javax.swing.JFrame {
                     .addComponent(Label_namalengkap)
                     .addComponent(tampil_namalengkap, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Label_jabatan)
                     .addComponent(tampil_jabatan, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))

@@ -145,12 +145,22 @@ public class SUPPLIER extends javax.swing.JFrame {
         btn_EDIT.setForeground(new java.awt.Color(255, 255, 255));
         btn_EDIT.setText("EDIT");
         btn_EDIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_EDIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_EDITActionPerformed(evt);
+            }
+        });
 
         btn_REMOVE.setBackground(new java.awt.Color(255, 102, 102));
         btn_REMOVE.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btn_REMOVE.setForeground(new java.awt.Color(255, 255, 255));
         btn_REMOVE.setText("REMOVE");
         btn_REMOVE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_REMOVE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_REMOVEActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SidebarLayout = new javax.swing.GroupLayout(Sidebar);
         Sidebar.setLayout(SidebarLayout);
@@ -362,6 +372,95 @@ public class SUPPLIER extends javax.swing.JFrame {
         db.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_BACKActionPerformed
+
+    private void btn_EDITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EDITActionPerformed
+        // TODO add your handling code here:
+        int baris = tabel_supplier.getSelectedRow();
+    
+    if (baris == -1) {
+        JOptionPane.showMessageDialog(this, "Silakan pilih data supplier yang ingin diedit di tabel terlebih dahulu!");
+        return;
+    }
+
+    String id = tampil_idsupplier.getText();
+    String nama = nama_supplier.getText();
+    String barang = tampil_namabrg.getText();
+    String alamat = alamat_supplier.getText();
+
+    if (nama.isEmpty() || alamat.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Nama Supplier dan Alamat tidak boleh kosong!");
+        return;
+    }
+
+    try {
+        Connection conn = KONEKSI.getConnection();
+        String query = "UPDATE supplier SET nama_supplier=?, nama_barang=?, alamat_supplier=? WHERE id_supplier=?";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setString(1, nama);
+        ps.setString(2, barang);
+        ps.setString(3, alamat);
+        ps.setString(4, id);
+        
+        int hasil = ps.executeUpdate();
+
+        if (hasil > 0) {
+            JOptionPane.showMessageDialog(this, "Data Berhasil Diperbarui!");
+            
+            tabel_supplier.setValueAt(nama, baris, 1);
+            tabel_supplier.setValueAt(barang, baris, 2);
+            tabel_supplier.setValueAt(alamat, baris, 3);
+            
+            resetData();
+            refreshTabel(); 
+        } else {
+            JOptionPane.showMessageDialog(this, "Gagal memperbarui data. ID tidak ditemukan.");
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error Database: " + e.getMessage());
+    }
+    }//GEN-LAST:event_btn_EDITActionPerformed
+
+    private void btn_REMOVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_REMOVEActionPerformed
+        // TODO add your handling code here:
+        int baris = tabel_supplier.getSelectedRow();
+    
+    if (baris == -1) {
+        JOptionPane.showMessageDialog(this, "Silakan pilih data supplier yang ingin dihapus di tabel!");
+        return;
+    }
+
+    String id = tampil_idsupplier.getText();
+
+    int konfirmasi = JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin menghapus supplier dengan ID " + id + "?", "Konfirmasi Hapus", JOptionPane.YES_NO_OPTION);
+    
+    if (konfirmasi == JOptionPane.YES_OPTION) {
+        
+        try {
+            Connection conn = KONEKSI.getConnection();
+            String query = "DELETE FROM supplier WHERE id_supplier=?";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, id);
+            
+            int hasil = ps.executeUpdate();
+
+            if (hasil > 0) {
+                JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus!");
+                
+                DefaultTableModel model = (DefaultTableModel) tabel_supplier.getModel();
+                model.removeRow(baris);
+                
+                resetData();
+                refreshTabel();
+            } else {
+                JOptionPane.showMessageDialog(this, "Gagal menghapus data. Data mungkin sudah tidak ada.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error Database: " + e.getMessage());
+        }
+    }
+    }//GEN-LAST:event_btn_REMOVEActionPerformed
 
     /**
      * @param args the command line arguments

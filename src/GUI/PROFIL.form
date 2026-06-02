@@ -196,9 +196,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="34" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="Label_usn" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="tampil_usn" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="tampil_usn" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -206,9 +206,9 @@
                           <Component id="tampil_namalengkap" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="Label_jabatan" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="tampil_jabatan" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="tampil_jabatan" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
