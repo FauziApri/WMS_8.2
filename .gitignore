@@ -1,0 +1,10 @@
+build/
+dist/
+.env
+.classpath
+.project
+*.log
+nbproject/private/
+.settings/
+run.bat
+Makefile
