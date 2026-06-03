@@ -29,6 +29,44 @@ public class SPL {
         return false;
     }
     
+    // Button EDIT
+    public boolean edit (String id, String barang, String supplier, String alamat) {
+        try {
+            Connection conn = KONEKSI.getConnection();
+            String sql = "UPDATE supplier SET nama_barang=?, nama_supplier=?, alamat_supplier=? WHERE id_supplier=?";         
+            PreparedStatement pst = conn.prepareStatement(sql);
+
+            pst.setString(1, barang);
+            pst.setString(2, supplier);
+            pst.setString(3, alamat);
+            pst.setString(4, id); 
+
+            return pst.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            return false;
+        }
+    }
+    
+    // Button DELETE
+    public static boolean delete(String id){
+        try {            
+            Connection conn = KONEKSI.getConnection();
+            String sql = "DELETE FROM supplier WHERE id_supplier = ?";            
+            PreparedStatement pst = conn.prepareStatement(sql);
+            
+            pst.setString(1, id);
+            
+            int rowAffected = pst.executeUpdate();
+            return rowAffected > 0;
+            
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            return false;
+        }
+    }
+    
     // Model buat nampilin tabel barang
     public DefaultTableModel getModelBarang() {
         DefaultTableModel model_barang = new DefaultTableModel();
@@ -38,7 +76,9 @@ public class SPL {
         
         try {
             Connection conn = KONEKSI.getConnection();
-            String sql = "SELECT id_barang, nama_barang FROM barang";
+            String sql = "SELECT id_barang, nama_barang FROM barang "
+                    + "WHERE nama_barang "
+                    + "NOT IN (SELECT nama_barang FROM supplier)";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
 

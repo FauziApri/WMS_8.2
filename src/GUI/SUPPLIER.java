@@ -3,7 +3,6 @@
  */
 
 package GUI;
-import SYNTAX.BRG_MASUK;
 import SYNTAX.KONEKSI;
 import SYNTAX.SPL;
 import java.sql.*;
@@ -17,7 +16,25 @@ public class SUPPLIER extends javax.swing.JFrame {
     public SUPPLIER() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        formatTable();
         refreshTabel();
+    }
+    
+    void formatTable(){
+        tabel_barang.setModel(supplier.getModelBarang());
+        tabel_barang.getTableHeader().setOpaque(false);
+        tabel_barang.getTableHeader().setBackground(new java.awt.Color(43, 57, 144));
+        tabel_barang.getTableHeader().setForeground(java.awt.Color.BLACK);
+        tabel_barang.getTableHeader().setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 14));
+        tabel_barang.getTableHeader().setReorderingAllowed(false);
+        
+        tabel_supplier.setModel(supplier.getModelSupplier());
+        tabel_supplier.getTableHeader().setOpaque(false);
+        tabel_supplier.getTableHeader().setBackground(new java.awt.Color(43, 57, 144));
+        tabel_supplier.getTableHeader().setForeground(java.awt.Color.BLACK);
+        tabel_supplier.getTableHeader().setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 14));
+        tabel_supplier.getTableHeader().setReorderingAllowed(false);
     }
     
     public void refreshTabel (){
@@ -86,6 +103,8 @@ public class SUPPLIER extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabel_supplier = new javax.swing.JTable();
         btn_BACK = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -252,6 +271,7 @@ public class SUPPLIER extends javax.swing.JFrame {
                 "ID Barang", "Nama Barang"
             }
         ));
+        tabel_barang.setRowHeight(30);
         tabel_barang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabel_barangMouseClicked(evt);
@@ -267,6 +287,7 @@ public class SUPPLIER extends javax.swing.JFrame {
                 "ID Supplier", "Nama Supplier", "Nama Barang", "Alamat"
             }
         ));
+        tabel_supplier.setRowHeight(30);
         tabel_supplier.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabel_supplierMouseClicked(evt);
@@ -288,33 +309,49 @@ public class SUPPLIER extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Data Barang");
+
+        jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Data Supplier");
+
         javax.swing.GroupLayout Main_MenuLayout = new javax.swing.GroupLayout(Main_Menu);
         Main_Menu.setLayout(Main_MenuLayout);
         Main_MenuLayout.setHorizontalGroup(
             Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Main_MenuLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Main_MenuLayout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(89, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Main_MenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_BACK, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addGroup(Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Main_MenuLayout.createSequentialGroup()
+                        .addGroup(Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
+                            .addGroup(Main_MenuLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_BACK, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(75, 75, 75))
+                    .addGroup(Main_MenuLayout.createSequentialGroup()
+                        .addGroup(Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         Main_MenuLayout.setVerticalGroup(
             Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Main_MenuLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(42, 42, 42)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
                 .addComponent(btn_BACK, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(88, 88, 88)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59))
+                .addGap(25, 25, 25))
         );
 
         getContentPane().add(Main_Menu, java.awt.BorderLayout.CENTER);
@@ -336,8 +373,8 @@ public class SUPPLIER extends javax.swing.JFrame {
         int baris = tabel_supplier.getSelectedRow();
     
         tampil_idsupplier.setText(tabel_supplier.getValueAt(baris, 0).toString());
-        tampil_namabrg.setText(tabel_supplier.getValueAt(baris, 1).toString());
-        nama_supplier.setText(tabel_supplier.getValueAt(baris, 2).toString());
+        nama_supplier.setText(tabel_supplier.getValueAt(baris, 1).toString());
+        tampil_namabrg.setText(tabel_supplier.getValueAt(baris, 2).toString());
         alamat_supplier.setText(tabel_supplier.getValueAt(baris, 3).toString());
     }//GEN-LAST:event_tabel_supplierMouseClicked
 
@@ -374,92 +411,55 @@ public class SUPPLIER extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_BACKActionPerformed
 
     private void btn_EDITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EDITActionPerformed
-        // TODO add your handling code here:
-        int baris = tabel_supplier.getSelectedRow();
-    
-    if (baris == -1) {
-        JOptionPane.showMessageDialog(this, "Silakan pilih data supplier yang ingin diedit di tabel terlebih dahulu!");
-        return;
-    }
-
-    String id = tampil_idsupplier.getText();
-    String nama = nama_supplier.getText();
-    String barang = tampil_namabrg.getText();
-    String alamat = alamat_supplier.getText();
-
-    if (nama.isEmpty() || alamat.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Nama Supplier dan Alamat tidak boleh kosong!");
-        return;
-    }
-
-    try {
-        Connection conn = KONEKSI.getConnection();
-        String query = "UPDATE supplier SET nama_supplier=?, nama_barang=?, alamat_supplier=? WHERE id_supplier=?";
-        PreparedStatement ps = conn.prepareStatement(query);
-        ps.setString(1, nama);
-        ps.setString(2, barang);
-        ps.setString(3, alamat);
-        ps.setString(4, id);
+        int selectedRow = tabel_supplier.getSelectedRow();
         
-        int hasil = ps.executeUpdate();
+        String id = tabel_supplier.getValueAt(selectedRow, 0).toString();            
+        String namaBarang = tampil_namabrg.getText();
+        String namaSupplier = nama_supplier.getText();
+        String alamat = alamat_supplier.getText();
 
-        if (hasil > 0) {
-            JOptionPane.showMessageDialog(this, "Data Berhasil Diperbarui!");
+        if(selectedRow != -1){
+            boolean isUpdated = supplier.edit(id, namaBarang, namaSupplier, alamat);
+                
+            if(isUpdated){   
+                JOptionPane.showMessageDialog(this, "Data berhasil diubah!");
+                refreshTabel();
+                resetData();
+            } else {
+                JOptionPane.showMessageDialog(this, "Gagal mengubah data di database!");
+            }
             
-            tabel_supplier.setValueAt(nama, baris, 1);
-            tabel_supplier.setValueAt(barang, baris, 2);
-            tabel_supplier.setValueAt(alamat, baris, 3);
-            
-            resetData();
-            refreshTabel(); 
         } else {
-            JOptionPane.showMessageDialog(this, "Gagal memperbarui data. ID tidak ditemukan.");
+            JOptionPane.showMessageDialog(this, "Pilih baris di tabel yang ingin diubah terlebih dahulu");
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
-        JOptionPane.showMessageDialog(this, "Error Database: " + e.getMessage());
-    }
     }//GEN-LAST:event_btn_EDITActionPerformed
 
     private void btn_REMOVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_REMOVEActionPerformed
-        // TODO add your handling code here:
-        int baris = tabel_supplier.getSelectedRow();
-    
-    if (baris == -1) {
-        JOptionPane.showMessageDialog(this, "Silakan pilih data supplier yang ingin dihapus di tabel!");
-        return;
-    }
+         int selectedRow = tabel_supplier.getSelectedRow();
 
-    String id = tampil_idsupplier.getText();
+        if (selectedRow != -1){
+            String id = tabel_supplier.getValueAt(selectedRow, 0).toString();
 
-    int konfirmasi = JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin menghapus supplier dengan ID " + id + "?", "Konfirmasi Hapus", JOptionPane.YES_NO_OPTION);
-    
-    if (konfirmasi == JOptionPane.YES_OPTION) {
-        
-        try {
-            Connection conn = KONEKSI.getConnection();
-            String query = "DELETE FROM supplier WHERE id_supplier=?";
-            PreparedStatement ps = conn.prepareStatement(query);
-            ps.setString(1, id);
-            
-            int hasil = ps.executeUpdate();
+            int confirm = JOptionPane.showConfirmDialog(this,
+                "Apakah anda yakin ingin menghapus supplier dengan ID " + id + "?",
+                "Konfirmasi Hapus", JOptionPane.YES_NO_OPTION);
 
-            if (hasil > 0) {
-                JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus!");
-                
-                DefaultTableModel model = (DefaultTableModel) tabel_supplier.getModel();
-                model.removeRow(baris);
-                
-                resetData();
-                refreshTabel();
-            } else {
-                JOptionPane.showMessageDialog(this, "Gagal menghapus data. Data mungkin sudah tidak ada.");
+            if(confirm == JOptionPane.YES_OPTION){
+                boolean isDeleted = supplier.delete(id);
+
+                if (isDeleted){
+                    DefaultTableModel model_supplier = (DefaultTableModel) tabel_supplier.getModel();
+                    model_supplier.removeRow(selectedRow);
+
+                    JOptionPane.showMessageDialog(this, "Data berhasil dihapus!");
+                    resetData();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Gagal menghapus data dari database!");
+                }
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error Database: " + e.getMessage());
+        } else {
+            JOptionPane.showMessageDialog(this, "Pilih baris di tabel yang ingin di hapus terlebih dahulu!");
         }
-    }
     }//GEN-LAST:event_btn_REMOVEActionPerformed
 
     /**
@@ -510,6 +510,8 @@ public class SUPPLIER extends javax.swing.JFrame {
     private javax.swing.JButton btn_BACK;
     private javax.swing.JButton btn_EDIT;
     private javax.swing.JButton btn_REMOVE;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;

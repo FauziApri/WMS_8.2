@@ -10,6 +10,9 @@ public class REGISTER extends javax.swing.JFrame {
 
     public REGISTER() {
         initComponents();
+        
+        // Tampil LOGO
+        LOGO.setIconResize(label_Logo, "Logo_Hamada.png");
     }
 
     /**
@@ -38,6 +41,7 @@ public class REGISTER extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         button_register = new javax.swing.JButton();
         Main_Menu = new javax.swing.JPanel();
+        label_Logo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,6 +97,7 @@ public class REGISTER extends javax.swing.JFrame {
         button_register.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         button_register.setForeground(new java.awt.Color(255, 255, 255));
         button_register.setText("SIGN UP");
+        button_register.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_register.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_registerActionPerformed(evt);
@@ -176,15 +181,24 @@ public class REGISTER extends javax.swing.JFrame {
 
         Main_Menu.setBackground(new java.awt.Color(155, 169, 255));
 
+        label_Logo.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        label_Logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout Main_MenuLayout = new javax.swing.GroupLayout(Main_Menu);
         Main_Menu.setLayout(Main_MenuLayout);
         Main_MenuLayout.setHorizontalGroup(
             Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 724, Short.MAX_VALUE)
+            .addGroup(Main_MenuLayout.createSequentialGroup()
+                .addGap(177, 177, 177)
+                .addComponent(label_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(177, Short.MAX_VALUE))
         );
         Main_MenuLayout.setVerticalGroup(
             Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Main_MenuLayout.createSequentialGroup()
+                .addContainerGap(115, Short.MAX_VALUE)
+                .addComponent(label_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(115, 115, 115))
         );
 
         getContentPane().add(Main_Menu, java.awt.BorderLayout.CENTER);
@@ -273,6 +287,7 @@ public class REGISTER extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel label_Logo;
     private javax.swing.JRadioButton radio_admin;
     private javax.swing.JRadioButton radio_staff;
     // End of variables declaration//GEN-END:variables

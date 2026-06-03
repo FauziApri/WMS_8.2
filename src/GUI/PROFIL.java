@@ -4,7 +4,7 @@
 
 package GUI;
 
-import SYNTAX.USER;
+import SYNTAX.*;
 import javax.swing.JOptionPane;
 
 public class PROFIL extends javax.swing.JFrame {
@@ -14,7 +14,9 @@ public class PROFIL extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
-         
+        // Tampil LOGO
+        LOGO.setIconResize(label_Logo, "Logo_Hamada.png");
+        
         if (USER.currentUsn == null) {
             LOGIN login = new LOGIN();
             login.setLocationRelativeTo(null);
@@ -42,6 +44,7 @@ public class PROFIL extends javax.swing.JFrame {
         btn_LOGOUT = new javax.swing.JButton();
         Label_profil = new javax.swing.JLabel();
         Main_Menu = new javax.swing.JPanel();
+        label_Logo = new javax.swing.JLabel();
         btn_BACK = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         Label_usn = new javax.swing.JLabel();
@@ -56,7 +59,7 @@ public class PROFIL extends javax.swing.JFrame {
         Sidebar.setBackground(new java.awt.Color(43, 57, 144));
         Sidebar.setPreferredSize(new java.awt.Dimension(300, 600));
 
-        btn_LOGOUT.setBackground(new java.awt.Color(255, 50, 50));
+        btn_LOGOUT.setBackground(new java.awt.Color(255, 102, 102));
         btn_LOGOUT.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btn_LOGOUT.setForeground(new java.awt.Color(255, 255, 255));
         btn_LOGOUT.setText("LOGOUT");
@@ -90,7 +93,7 @@ public class PROFIL extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SidebarLayout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addComponent(Label_profil)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 452, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 439, Short.MAX_VALUE)
                 .addComponent(btn_LOGOUT, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
@@ -98,6 +101,9 @@ public class PROFIL extends javax.swing.JFrame {
         getContentPane().add(Sidebar, java.awt.BorderLayout.LINE_START);
 
         Main_Menu.setBackground(new java.awt.Color(155, 169, 255));
+
+        label_Logo.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        label_Logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         btn_BACK.setBackground(new java.awt.Color(43, 57, 144));
         btn_BACK.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -116,56 +122,61 @@ public class PROFIL extends javax.swing.JFrame {
         Label_usn.setForeground(new java.awt.Color(255, 255, 255));
         Label_usn.setText("Username:");
 
-        tampil_usn.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        tampil_usn.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         tampil_usn.setForeground(new java.awt.Color(255, 255, 255));
+        tampil_usn.setText("[ (login dulu) username ]");
 
         Label_namalengkap.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         Label_namalengkap.setForeground(new java.awt.Color(255, 255, 255));
         Label_namalengkap.setText("Nama Lengkap:");
 
-        tampil_namalengkap.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        tampil_namalengkap.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         tampil_namalengkap.setForeground(new java.awt.Color(255, 255, 255));
+        tampil_namalengkap.setText("[ (login dulu) nama lengkap ]");
 
         Label_jabatan.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         Label_jabatan.setForeground(new java.awt.Color(255, 255, 255));
         Label_jabatan.setText("Jabatan:");
 
-        tampil_jabatan.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        tampil_jabatan.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         tampil_jabatan.setForeground(new java.awt.Color(255, 255, 255));
+        tampil_jabatan.setText("[ (login dulu) jabatan ]");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Label_namalengkap)
-                    .addComponent(Label_usn, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Label_jabatan, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(18, 18, 18)
+                .addGap(46, 46, 46)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tampil_usn, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tampil_namalengkap, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tampil_jabatan, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(179, Short.MAX_VALUE))
+                    .addComponent(Label_usn)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Label_namalengkap)
+                            .addComponent(Label_jabatan))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tampil_usn, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tampil_namalengkap, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tampil_jabatan, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Label_usn)
-                    .addComponent(tampil_usn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                    .addComponent(tampil_usn))
+                .addGap(70, 70, 70)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Label_namalengkap)
-                    .addComponent(tampil_namalengkap, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tampil_namalengkap))
+                .addGap(70, 70, 70)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Label_jabatan)
-                    .addComponent(tampil_jabatan, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+                    .addComponent(tampil_jabatan))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Main_MenuLayout = new javax.swing.GroupLayout(Main_Menu);
@@ -173,21 +184,27 @@ public class PROFIL extends javax.swing.JFrame {
         Main_MenuLayout.setHorizontalGroup(
             Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Main_MenuLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addGap(54, 54, 54)
                 .addGroup(Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Main_MenuLayout.createSequentialGroup()
-                        .addComponent(btn_BACK, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(Main_MenuLayout.createSequentialGroup()
+                        .addGroup(Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(Main_MenuLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 526, Short.MAX_VALUE)
+                                .addComponent(btn_BACK, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(54, 54, 54))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Main_MenuLayout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27))))
+                    .addGroup(Main_MenuLayout.createSequentialGroup()
+                        .addComponent(label_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         Main_MenuLayout.setVerticalGroup(
             Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Main_MenuLayout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(142, 142, 142)
+                .addGap(28, 28, 28)
+                .addComponent(label_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(btn_BACK, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
@@ -198,14 +215,11 @@ public class PROFIL extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_BACKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BACKActionPerformed
-        DASHBOARD db = new DASHBOARD();
-        db.setLocationRelativeTo(null);
         db.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_BACKActionPerformed
 
     private void btn_LOGOUTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LOGOUTActionPerformed
-        // TODO add your handling code here:
         int konfirmasi = JOptionPane.showConfirmDialog(
             this,
             "Apakah Anda yakin ingin logout?",
@@ -269,6 +283,7 @@ public class PROFIL extends javax.swing.JFrame {
     private javax.swing.JButton btn_BACK;
     private javax.swing.JButton btn_LOGOUT;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel label_Logo;
     private javax.swing.JLabel tampil_jabatan;
     private javax.swing.JLabel tampil_namalengkap;
     private javax.swing.JLabel tampil_usn;

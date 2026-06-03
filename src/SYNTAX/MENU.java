@@ -7,6 +7,7 @@ import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 
 public class MENU {
+    
    // Model Tabel  [Untuk menampilkan data ke tabel GUI]
     public DefaultTableModel getModelBarang() {
         DefaultTableModel model = new DefaultTableModel();

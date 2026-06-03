@@ -4,6 +4,7 @@
 
 package GUI;
 import SYNTAX.KONEKSI;
+import SYNTAX.LOGO;
 import SYNTAX.MENU;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
@@ -15,21 +16,28 @@ import java.awt.Color;
 
 public class DASHBOARD extends javax.swing.JFrame {
     MENU board = new MENU();
-    /**
-     * Creates new form DASHBOARD
-     */
+    
     public DASHBOARD() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
-        tabel_brg.setModel(board.getModelBarang());
-        tabel_brg.getTableHeader().setOpaque(false);
-        tabel_brg.getTableHeader().setBackground(new java.awt.Color(43, 57, 144));
-        tabel_brg.getTableHeader().setForeground(java.awt.Color.BLACK);
-        tabel_brg.getTableHeader().setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 14));
-        tabel_brg.getTableHeader().setReorderingAllowed(false);
+        // Tampil LOGO
+        LOGO.setIconResize(label_Logo, "Logo_Hamada.png");
+        formatTable();
+        refreshTabel();
     }
 
+    void formatTable(){
+        tabel_barang.getTableHeader().setOpaque(false);
+        tabel_barang.getTableHeader().setBackground(new java.awt.Color(43, 57, 144));
+        tabel_barang.getTableHeader().setForeground(java.awt.Color.BLACK);
+        tabel_barang.getTableHeader().setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 14));
+        tabel_barang.getTableHeader().setReorderingAllowed(false);
+    }
+    
+    public void refreshTabel (){
+        tabel_barang.setModel(board.getModelBarang());
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,12 +56,13 @@ public class DASHBOARD extends javax.swing.JFrame {
         Label_brgkeluar = new javax.swing.JLabel();
         pn_supplier = new javax.swing.JPanel();
         Label_supplier = new javax.swing.JLabel();
+        label_Logo = new javax.swing.JLabel();
         Menu = new javax.swing.JPanel();
         Header = new javax.swing.JPanel();
         Border = new javax.swing.JPanel();
         Main_Menu = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabel_brg = new javax.swing.JTable();
+        tabel_barang = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         Cetak_StokBarang = new javax.swing.JMenuItem();
@@ -207,23 +216,34 @@ public class DASHBOARD extends javax.swing.JFrame {
                 .addGap(26, 26, 26))
         );
 
+        label_Logo.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        label_Logo.setForeground(new java.awt.Color(255, 255, 255));
+        label_Logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout SidebarLayout = new javax.swing.GroupLayout(Sidebar);
         Sidebar.setLayout(SidebarLayout);
         SidebarLayout.setHorizontalGroup(
             SidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SidebarLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(SidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(pn_supplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pn_brgkeluar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pn_brgmasuk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pn_profil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(SidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SidebarLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(SidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(pn_supplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pn_brgkeluar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pn_brgmasuk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pn_profil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(SidebarLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(label_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         SidebarLayout.setVerticalGroup(
             SidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SidebarLayout.createSequentialGroup()
-                .addGap(140, 140, 140)
+                .addGap(21, 21, 21)
+                .addComponent(label_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addComponent(pn_profil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(pn_brgmasuk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -259,9 +279,9 @@ public class DASHBOARD extends javax.swing.JFrame {
 
         Main_Menu.setBackground(new java.awt.Color(155, 169, 255));
 
-        tabel_brg.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        tabel_brg.setForeground(new java.awt.Color(35, 35, 35));
-        tabel_brg.setModel(new javax.swing.table.DefaultTableModel(
+        tabel_barang.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        tabel_barang.setForeground(new java.awt.Color(35, 35, 35));
+        tabel_barang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -277,8 +297,8 @@ public class DASHBOARD extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        tabel_brg.setRowHeight(30);
-        jScrollPane1.setViewportView(tabel_brg);
+        tabel_barang.setRowHeight(30);
+        jScrollPane1.setViewportView(tabel_barang);
 
         javax.swing.GroupLayout Main_MenuLayout = new javax.swing.GroupLayout(Main_Menu);
         Main_Menu.setLayout(Main_MenuLayout);
@@ -311,7 +331,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             .addGroup(BorderLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(Main_Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Menu.add(Border, java.awt.BorderLayout.CENTER);
@@ -424,6 +444,7 @@ public class DASHBOARD extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(DASHBOARD.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -447,10 +468,11 @@ public class DASHBOARD extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel label_Logo;
     private javax.swing.JPanel pn_brgkeluar;
     private javax.swing.JPanel pn_brgmasuk;
     private javax.swing.JPanel pn_profil;
     private javax.swing.JPanel pn_supplier;
-    private javax.swing.JTable tabel_brg;
+    private javax.swing.JTable tabel_barang;
     // End of variables declaration//GEN-END:variables
 }

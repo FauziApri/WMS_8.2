@@ -296,20 +296,20 @@ public class BARANG_MASUK extends javax.swing.JFrame {
         String kategori = (String) cmb_kategori.getSelectedItem();
         int jumlah = (int) spin_jumlah.getValue();
 
-        if (!nama.isEmpty()) {
+        if (!nama.isEmpty() && jumlah != 0) {
             DefaultTableModel model = (DefaultTableModel) tabel_brg.getModel();
             boolean add = BRG_MASUK.save(id, nama, kategori, jumlah);
             
             if (add){
-                JOptionPane.showMessageDialog(this, "Data Berhasil Ditambahkan ke Tabel!");
+                JOptionPane.showMessageDialog(this, "Data Berhasil Disimpan!");
                 model.addRow(new Object[]{id, nama, kategori, jumlah});
             } else {
-                JOptionPane.showMessageDialog(this, "Gagal Menyimpan ke Database");
+                JOptionPane.showMessageDialog(this, "Gagal Menyimpan data");
             }
             
             resetData();
         } else {
-            JOptionPane.showMessageDialog(this, "Isi Nama Barang terlebih dahulu!");
+            JOptionPane.showMessageDialog(this, "Masukkan data yang valid!");
         }
     }//GEN-LAST:event_btn_SAVEActionPerformed
 
@@ -320,21 +320,21 @@ public class BARANG_MASUK extends javax.swing.JFrame {
         String nama = input_namabrg.getText();
         String kategori = (String) cmb_kategori.getSelectedItem();
         int jumlah = (int) spin_jumlah.getValue();
-            
-        if(selectedRow != -1){
-            boolean isUpdated = BRG_MASUK.edit(id, nama, kategori, jumlah);
-                
-            if(isUpdated){   
-                JOptionPane.showMessageDialog(this, "Data berhasil diubah!");
-                refreshTable();
-                resetData();
+        
+            if(selectedRow != -1){
+                boolean isUpdated = BRG_MASUK.edit(id, nama, kategori, jumlah);
+
+                if(isUpdated){   
+                    JOptionPane.showMessageDialog(this, "Data berhasil diubah!");
+                    refreshTable();
+                    resetData();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Gagal mengubah data");
+                }
+
             } else {
-                JOptionPane.showMessageDialog(this, "Gagal mengubah data di database!");
+                JOptionPane.showMessageDialog(this, "Pilih baris di tabel yang ingin diubah terlebih dahulu");
             }
-            
-        } else {
-            JOptionPane.showMessageDialog(this, "Pilih baris di tabel yang ingin diubah terlebih dahulu");
-        }
     }//GEN-LAST:event_btn_EDITActionPerformed
 
     private void btn_DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DELETEActionPerformed

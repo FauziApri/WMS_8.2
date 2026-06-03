@@ -4,8 +4,6 @@
 
 package GUI;
 import SYNTAX.*;
-import java.awt.Image;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class LOGIN extends javax.swing.JFrame {
@@ -13,11 +11,10 @@ public class LOGIN extends javax.swing.JFrame {
     public LOGIN() {
         initComponents();
         this.setLocationRelativeTo(null);
-
-        tampilLogo();
-
+        
+        // Tampil LOGO
+        LOGO.setIconResize(label_Logo, "Logo_Hamada.png");
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,6 +57,8 @@ public class LOGIN extends javax.swing.JFrame {
         input_usn.setForeground(new java.awt.Color(255, 255, 255));
         input_usn.setBorder(null);
 
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+
         Label_Password.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         Label_Password.setForeground(new java.awt.Color(255, 255, 255));
         Label_Password.setText("Password");
@@ -68,6 +67,8 @@ public class LOGIN extends javax.swing.JFrame {
         input_pass.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         input_pass.setForeground(new java.awt.Color(255, 255, 255));
         input_pass.setBorder(null);
+
+        jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
 
         button_login.setBackground(new java.awt.Color(155, 169, 255));
         button_login.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -160,48 +161,38 @@ public class LOGIN extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Label_register)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         getContentPane().add(Sidebar, java.awt.BorderLayout.LINE_START);
 
         Main_Menu.setBackground(new java.awt.Color(155, 169, 255));
 
+        label_Logo.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        label_Logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout Main_MenuLayout = new javax.swing.GroupLayout(Main_Menu);
         Main_Menu.setLayout(Main_MenuLayout);
         Main_MenuLayout.setHorizontalGroup(
             Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Main_MenuLayout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addComponent(label_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addGap(177, 177, 177)
+                .addComponent(label_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(177, Short.MAX_VALUE))
         );
         Main_MenuLayout.setVerticalGroup(
             Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Main_MenuLayout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(label_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(161, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Main_MenuLayout.createSequentialGroup()
+                .addContainerGap(115, Short.MAX_VALUE)
+                .addComponent(label_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(115, 115, 115))
         );
 
         getContentPane().add(Main_Menu, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tampilLogo() {
-
-        ImageIcon icon = new ImageIcon(
-                getClass().getResource("/ASSETS/Logo_Hamada.png"));
-
-        Image img = icon.getImage().getScaledInstance(
-                label_Logo.getWidth(),
-                label_Logo.getHeight(),
-                Image.SCALE_SMOOTH);
-
-        label_Logo.setIcon(new ImageIcon(img));
-    }
-    
+        
     private void button_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_loginActionPerformed
         String username = input_usn.getText();
         String password = new String(input_pass.getPassword());

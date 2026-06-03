@@ -65,7 +65,7 @@ public class USER {
         return false;
     }
     
-    // LOGOUT
+    // Button LOGOUT [ PROFIL.java ]
     public static void logout() {
         currentUsn = null;
         currentUser = null;      

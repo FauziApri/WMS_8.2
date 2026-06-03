@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 
 public class BRG_KELUAR {
+    
     // Button SAVE
     public static boolean save(String id, int jumlahKeluar) {
         try {

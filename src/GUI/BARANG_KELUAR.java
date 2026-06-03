@@ -15,14 +15,17 @@ public class BARANG_KELUAR extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
+        formatTable();
+        refreshTabel();
+    }
+
+    void formatTable() {
         tabel_brg.getTableHeader().setOpaque(false);
         tabel_brg.getTableHeader().setBackground(new java.awt.Color(43, 57, 144));
         tabel_brg.getTableHeader().setForeground(java.awt.Color.BLACK);
         tabel_brg.getTableHeader().setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 14));
         tabel_brg.getTableHeader().setReorderingAllowed(false);
-        refreshTabel();
     }
-
     public void refreshTabel (){
         tabel_brg.setModel(out.getModelBarang());
     }
@@ -54,7 +57,6 @@ public class BARANG_KELUAR extends javax.swing.JFrame {
         spin_jumlah = new javax.swing.JSpinner();
         btn_SAVE = new javax.swing.JButton();
         btn_EDIT = new javax.swing.JButton();
-        btn_DELETE = new javax.swing.JButton();
         Main_menu = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabel_brg = new javax.swing.JTable();
@@ -122,17 +124,6 @@ public class BARANG_KELUAR extends javax.swing.JFrame {
             }
         });
 
-        btn_DELETE.setBackground(new java.awt.Color(255, 102, 102));
-        btn_DELETE.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        btn_DELETE.setForeground(new java.awt.Color(255, 255, 255));
-        btn_DELETE.setText("DELETE");
-        btn_DELETE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_DELETE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_DELETEActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout SidebarLayout = new javax.swing.GroupLayout(Sidebar);
         Sidebar.setLayout(SidebarLayout);
         SidebarLayout.setHorizontalGroup(
@@ -140,7 +131,7 @@ public class BARANG_KELUAR extends javax.swing.JFrame {
             .addGroup(SidebarLayout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addComponent(Label_keluar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
             .addGroup(SidebarLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(SidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,15 +149,10 @@ public class BARANG_KELUAR extends javax.swing.JFrame {
                                 .addComponent(jSeparator1))
                             .addComponent(spin_jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cmb_kategori, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(SidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(SidebarLayout.createSequentialGroup()
-                                    .addComponent(btn_SAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btn_EDIT, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(SidebarLayout.createSequentialGroup()
-                                    .addGap(76, 76, 76)
-                                    .addComponent(btn_DELETE, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(SidebarLayout.createSequentialGroup()
+                                .addComponent(btn_SAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_EDIT, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(28, 28, 28))))
         );
         SidebarLayout.setVerticalGroup(
@@ -196,9 +182,7 @@ public class BARANG_KELUAR extends javax.swing.JFrame {
                 .addGroup(SidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_SAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_EDIT, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btn_DELETE, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         getContentPane().add(Sidebar, java.awt.BorderLayout.LINE_START);
@@ -314,10 +298,6 @@ public class BARANG_KELUAR extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_EDITActionPerformed
 
-    private void btn_DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DELETEActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_DELETEActionPerformed
-
     private void btn_BACKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_BACKMouseClicked
         board.setVisible(true);
         this.dispose();
@@ -370,7 +350,6 @@ public class BARANG_KELUAR extends javax.swing.JFrame {
     private javax.swing.JPanel Main_menu;
     private javax.swing.JPanel Sidebar;
     private javax.swing.JButton btn_BACK;
-    private javax.swing.JButton btn_DELETE;
     private javax.swing.JButton btn_EDIT;
     private javax.swing.JButton btn_SAVE;
     private javax.swing.JComboBox<String> cmb_kategori;
