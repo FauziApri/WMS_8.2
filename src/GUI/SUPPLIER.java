@@ -4,13 +4,12 @@
 
 package GUI;
 import SYNTAX.KONEKSI;
-import SYNTAX.SPL;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class SUPPLIER extends javax.swing.JFrame {
-    SPL supplier = new SPL();
+    SYNTAX.SUPPLIER supplier = new SYNTAX.SUPPLIER();
     DASHBOARD db = new DASHBOARD();
     
     public SUPPLIER() {

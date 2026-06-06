@@ -43,8 +43,8 @@ public class PROFIL extends javax.swing.JFrame {
         Sidebar = new javax.swing.JPanel();
         btn_LOGOUT = new javax.swing.JButton();
         Label_profil = new javax.swing.JLabel();
-        Main_Menu = new javax.swing.JPanel();
         label_Logo = new javax.swing.JLabel();
+        Main_Menu = new javax.swing.JPanel();
         btn_BACK = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         Label_usn = new javax.swing.JLabel();
@@ -53,6 +53,9 @@ public class PROFIL extends javax.swing.JFrame {
         tampil_namalengkap = new javax.swing.JLabel();
         Label_jabatan = new javax.swing.JLabel();
         tampil_jabatan = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,6 +77,9 @@ public class PROFIL extends javax.swing.JFrame {
         Label_profil.setForeground(new java.awt.Color(255, 255, 255));
         Label_profil.setText("PROFIL");
 
+        label_Logo.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        label_Logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout SidebarLayout = new javax.swing.GroupLayout(Sidebar);
         Sidebar.setLayout(SidebarLayout);
         SidebarLayout.setHorizontalGroup(
@@ -84,26 +90,26 @@ public class PROFIL extends javax.swing.JFrame {
                         .addGap(111, 111, 111)
                         .addComponent(Label_profil))
                     .addGroup(SidebarLayout.createSequentialGroup()
-                        .addGap(100, 100, 100)
+                        .addGap(104, 104, 104)
                         .addComponent(btn_LOGOUT, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
+            .addComponent(label_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         SidebarLayout.setVerticalGroup(
             SidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SidebarLayout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addComponent(Label_profil)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 439, Short.MAX_VALUE)
+                .addGap(73, 73, 73)
+                .addComponent(label_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
                 .addComponent(btn_LOGOUT, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         getContentPane().add(Sidebar, java.awt.BorderLayout.LINE_START);
 
         Main_Menu.setBackground(new java.awt.Color(155, 169, 255));
-
-        label_Logo.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        label_Logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         btn_BACK.setBackground(new java.awt.Color(43, 57, 144));
         btn_BACK.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -120,7 +126,7 @@ public class PROFIL extends javax.swing.JFrame {
 
         Label_usn.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         Label_usn.setForeground(new java.awt.Color(255, 255, 255));
-        Label_usn.setText("Username:");
+        Label_usn.setText("Username");
 
         tampil_usn.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         tampil_usn.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,7 +134,7 @@ public class PROFIL extends javax.swing.JFrame {
 
         Label_namalengkap.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         Label_namalengkap.setForeground(new java.awt.Color(255, 255, 255));
-        Label_namalengkap.setText("Nama Lengkap:");
+        Label_namalengkap.setText("Nama Lengkap");
 
         tampil_namalengkap.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         tampil_namalengkap.setForeground(new java.awt.Color(255, 255, 255));
@@ -136,30 +142,49 @@ public class PROFIL extends javax.swing.JFrame {
 
         Label_jabatan.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         Label_jabatan.setForeground(new java.awt.Color(255, 255, 255));
-        Label_jabatan.setText("Jabatan:");
+        Label_jabatan.setText("Jabatan");
 
         tampil_jabatan.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         tampil_jabatan.setForeground(new java.awt.Color(255, 255, 255));
         tampil_jabatan.setText("[ (login dulu) jabatan ]");
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText(":");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText(":");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText(":");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Label_usn)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Label_namalengkap)
-                            .addComponent(Label_jabatan))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tampil_usn, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tampil_namalengkap, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tampil_jabatan, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Label_namalengkap)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Label_jabatan)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Label_usn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tampil_usn, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tampil_namalengkap, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tampil_jabatan, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,15 +192,18 @@ public class PROFIL extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Label_usn)
-                    .addComponent(tampil_usn))
-                .addGap(70, 70, 70)
+                    .addComponent(tampil_usn)
+                    .addComponent(jLabel1))
+                .addGap(71, 71, 71)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Label_namalengkap)
-                    .addComponent(tampil_namalengkap))
+                    .addComponent(tampil_namalengkap)
+                    .addComponent(jLabel2))
                 .addGap(70, 70, 70)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Label_jabatan)
-                    .addComponent(tampil_jabatan))
+                    .addComponent(tampil_jabatan)
+                    .addComponent(jLabel3))
                 .addContainerGap(82, Short.MAX_VALUE))
         );
 
@@ -185,28 +213,21 @@ public class PROFIL extends javax.swing.JFrame {
             Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Main_MenuLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addGroup(Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(Main_MenuLayout.createSequentialGroup()
-                        .addGroup(Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(Main_MenuLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 526, Short.MAX_VALUE)
-                                .addComponent(btn_BACK, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(54, 54, 54))
-                    .addGroup(Main_MenuLayout.createSequentialGroup()
-                        .addComponent(label_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 526, Short.MAX_VALUE)
+                        .addComponent(btn_BACK, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(54, 54, 54))
         );
         Main_MenuLayout.setVerticalGroup(
             Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Main_MenuLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(label_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addContainerGap(125, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btn_BACK, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addGap(73, 73, 73))
         );
 
         getContentPane().add(Main_Menu, java.awt.BorderLayout.CENTER);
@@ -282,6 +303,9 @@ public class PROFIL extends javax.swing.JFrame {
     private javax.swing.JPanel Sidebar;
     private javax.swing.JButton btn_BACK;
     private javax.swing.JButton btn_LOGOUT;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label_Logo;
     private javax.swing.JLabel tampil_jabatan;

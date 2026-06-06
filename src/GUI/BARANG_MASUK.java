@@ -280,9 +280,9 @@ public class BARANG_MASUK extends javax.swing.JFrame {
             .addGroup(Main_menuLayout.createSequentialGroup()
                 .addContainerGap(135, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
+                .addGap(38, 38, 38)
                 .addComponent(btn_BACK, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
+                .addGap(77, 77, 77))
         );
 
         getContentPane().add(Main_menu, java.awt.BorderLayout.CENTER);

@@ -7,6 +7,8 @@ import javax.swing.JOptionPane;
 import SYNTAX.*;
 
 public class REGISTER extends javax.swing.JFrame {
+    
+    LOGIN lgn = new LOGIN();
 
     public REGISTER() {
         initComponents();
@@ -42,6 +44,7 @@ public class REGISTER extends javax.swing.JFrame {
         button_register = new javax.swing.JButton();
         Main_Menu = new javax.swing.JPanel();
         label_Logo = new javax.swing.JLabel();
+        btn_BACK = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,29 +122,27 @@ public class REGISTER extends javax.swing.JFrame {
                                     .addGap(65, 65, 65))
                                 .addGroup(SidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(input_pass)
-                                    .addComponent(input_nama)
-                                    .addGroup(SidebarLayout.createSequentialGroup()
-                                        .addGroup(SidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Label_password)
-                                            .addComponent(Label_jabatan)
-                                            .addComponent(Label_username)
-                                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(input_usn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SidebarLayout.createSequentialGroup()
-                                                .addComponent(button_register, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(8, 8, 8)))
-                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addComponent(input_nama))
                                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(SidebarLayout.createSequentialGroup()
                                 .addGap(24, 24, 24)
                                 .addComponent(radio_admin)
                                 .addGap(57, 57, 57)
-                                .addComponent(radio_staff))))
+                                .addComponent(radio_staff))
+                            .addGroup(SidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Label_password)
+                                .addComponent(Label_jabatan)
+                                .addComponent(Label_username)
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(input_usn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SidebarLayout.createSequentialGroup()
+                                    .addComponent(button_register, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(8, 8, 8)))))
                     .addGroup(SidebarLayout.createSequentialGroup()
                         .addGap(101, 101, 101)
                         .addComponent(PanelRegister)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addGap(72, 72, 72))
         );
         SidebarLayout.setVerticalGroup(
             SidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,7 +175,7 @@ public class REGISTER extends javax.swing.JFrame {
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(button_register, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         getContentPane().add(Sidebar, java.awt.BorderLayout.LINE_START);
@@ -184,6 +185,17 @@ public class REGISTER extends javax.swing.JFrame {
         label_Logo.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         label_Logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        btn_BACK.setBackground(new java.awt.Color(43, 57, 144));
+        btn_BACK.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        btn_BACK.setForeground(new java.awt.Color(255, 255, 255));
+        btn_BACK.setText("BACK");
+        btn_BACK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_BACK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_BACKActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Main_MenuLayout = new javax.swing.GroupLayout(Main_Menu);
         Main_Menu.setLayout(Main_MenuLayout);
         Main_MenuLayout.setHorizontalGroup(
@@ -192,13 +204,19 @@ public class REGISTER extends javax.swing.JFrame {
                 .addGap(177, 177, 177)
                 .addComponent(label_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(177, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Main_MenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_BACK, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98))
         );
         Main_MenuLayout.setVerticalGroup(
             Main_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Main_MenuLayout.createSequentialGroup()
                 .addContainerGap(115, Short.MAX_VALUE)
                 .addComponent(label_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(115, 115, 115))
+                .addGap(28, 28, 28)
+                .addComponent(btn_BACK, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
         );
 
         getContentPane().add(Main_Menu, java.awt.BorderLayout.CENTER);
@@ -240,6 +258,11 @@ public class REGISTER extends javax.swing.JFrame {
         
     }//GEN-LAST:event_button_registerActionPerformed
 
+    private void btn_BACKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BACKActionPerformed
+        lgn.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_BACKActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -279,6 +302,7 @@ public class REGISTER extends javax.swing.JFrame {
     private javax.swing.JPanel Main_Menu;
     private javax.swing.JLabel PanelRegister;
     private javax.swing.JPanel Sidebar;
+    private javax.swing.JButton btn_BACK;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton button_register;
     private javax.swing.JTextField input_nama;

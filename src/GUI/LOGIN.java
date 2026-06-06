@@ -57,8 +57,6 @@ public class LOGIN extends javax.swing.JFrame {
         input_usn.setForeground(new java.awt.Color(255, 255, 255));
         input_usn.setBorder(null);
 
-        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
-
         Label_Password.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         Label_Password.setForeground(new java.awt.Color(255, 255, 255));
         Label_Password.setText("Password");
@@ -67,8 +65,6 @@ public class LOGIN extends javax.swing.JFrame {
         input_pass.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         input_pass.setForeground(new java.awt.Color(255, 255, 255));
         input_pass.setBorder(null);
-
-        jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
 
         button_login.setBackground(new java.awt.Color(155, 169, 255));
         button_login.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -93,11 +89,13 @@ public class LOGIN extends javax.swing.JFrame {
         });
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Don't Have an Account?");
 
         Label_register.setBackground(new java.awt.Color(255, 255, 255));
-        Label_register.setForeground(new java.awt.Color(0, 135, 255));
+        Label_register.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Label_register.setForeground(new java.awt.Color(0, 233, 255));
         Label_register.setText("Register Now!");
         Label_register.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Label_register.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -161,7 +159,7 @@ public class LOGIN extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Label_register)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
 
         getContentPane().add(Sidebar, java.awt.BorderLayout.LINE_START);

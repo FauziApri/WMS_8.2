@@ -233,9 +233,9 @@ public class BARANG_KELUAR extends javax.swing.JFrame {
             .addGroup(Main_menuLayout.createSequentialGroup()
                 .addContainerGap(135, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
+                .addGap(39, 39, 39)
                 .addComponent(btn_BACK, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
+                .addGap(76, 76, 76))
         );
 
         getContentPane().add(Main_menu, java.awt.BorderLayout.CENTER);

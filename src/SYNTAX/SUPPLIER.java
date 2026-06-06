@@ -8,7 +8,7 @@ import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 
-public class SPL {
+public class SUPPLIER {
     
     // Button ADD
     public boolean input(String id, String nama, String barang, String alamat) {
